@@ -1,0 +1,16 @@
+2024-11-28 17:02:49,708 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 17:02:49,710 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 17:06:27,627 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 17:06:27,629 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 17:08:30,479 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 17:08:30,482 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 17:08:33,020 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:33] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:46,794 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:46] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:47,532 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:47] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:48,022 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:48,224 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:48,374 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
+2024-11-28 17:08:48,491 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -

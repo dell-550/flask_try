@@ -18,9 +18,11 @@ def init_db(init_db):
         with app.app_context():
             # 创建所有定义的表
             db.create_all()
-            print("Database tables created successfully!")
+            app.logger.info("Database tables created successfully!")
+
     else:
-        print("init-db is not set")
+        app.logger.info("init-db is not set")
+    
 
 
 
@@ -29,13 +31,14 @@ def init_db(init_db):
 # help: 'Test model names  Eg:  flask --app .\manage.py test-model tests.test_user' 
 @click.argument('test_names', nargs=-1)
 def test_model(test_names):
-    print(f"test_names {test_names}")
+    app.logger.info("test model")
+    # print(f"test_names {test_names}")
     import unittest
     if test_names:
         tests = unittest.TestLoader().loadTestsFromNames(test_names)
     else:
         tests = unittest.TestLoader().discover('tests')
-    print(f"tests {tests}")
+    # print(f"tests {tests}")
     unittest.TextTestRunner(verbosity=2).run(tests)
 
 
