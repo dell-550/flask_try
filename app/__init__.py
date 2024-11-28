@@ -18,10 +18,11 @@ def create_app( config_path=None):
     # print(app.config)
 
     # 注册蓝图或路由
-    from app.controller import user as user_blueprint
-    app.register_blueprint(user_blueprint, url_prefix='/api/v1')
-
+    from app.controller import user_api as user_blueprint
+    from app.controller import home_api as home_blueprint
+    app.register_blueprint(user_blueprint, url_prefix='/user/')
+    app.register_blueprint(home_blueprint, url_prefix='/')
     print("app created")
-    # print(app.url_map)
+    print(app.url_map)
 
     return app

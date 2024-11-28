@@ -26,7 +26,8 @@ def init_db(init_db):
 
 @app.cli.command()
 # @click.option('--test', help='test model')
-@click.argument('test_names', nargs=-1, help='Test model names  Eg:  flask --app .\manage.py test-model tests.test_user' )
+# help: 'Test model names  Eg:  flask --app .\manage.py test-model tests.test_user' 
+@click.argument('test_names', nargs=-1)
 def test_model(test_names):
     print(f"test_names {test_names}")
     import unittest

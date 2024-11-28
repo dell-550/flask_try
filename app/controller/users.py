@@ -1,8 +1,8 @@
 from flask import jsonify, request
 
-from . import user
+from . import user_api
 from app.service import user_service
-@user.route('/adduser/', methods=['POST'])
+@user_api.route('/adduser/', methods=['POST'])
 def add_user():
     data = request.values
     try:
@@ -15,7 +15,7 @@ def add_user():
     
 
 
-@user.route('/', methods=['GET'])
+@user_api.route('/', methods=['GET'])
 def users():
     data = user_service.hello()
     return data
