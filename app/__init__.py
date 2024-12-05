@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import yaml
 
 
-handler = RotatingFileHandler('./logs/flask.log', maxBytes=10000, backupCount=1)
+handler = RotatingFileHandler('logs/flask.log', maxBytes=10000, backupCount=1)
 handler.setLevel("DEBUG")
 
 # dictConfig({
