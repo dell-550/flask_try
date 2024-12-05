@@ -1,6 +1,6 @@
 
 from logging.handlers import RotatingFileHandler
-from flask import Flask, logging
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import yaml
 
