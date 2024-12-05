@@ -1,4 +1,4 @@
-from flask import app, jsonify, request
+from flask import  jsonify, request
 
 from . import user_api
 from app.service import user_service
@@ -18,5 +18,5 @@ def add_user():
 @user_api.route('/', methods=['GET'])
 def users():
     data = user_service.hello()
-    app.logger.info("hello")
+
     return data

@@ -14,3 +14,41 @@
 2024-11-28 17:08:48,224 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
 2024-11-28 17:08:48,374 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
 2024-11-28 17:08:48,491 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:08:48] "GET / HTTP/1.1" 200 -
+2024-11-28 17:40:35,349 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 17:40:35,349 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 17:40:42,549 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 17:40:42] "GET / HTTP/1.1" 200 -
+2024-11-28 18:30:58,279 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 18:30:58,279 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 18:31:05,503 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 18:31:05] "GET / HTTP/1.1" 200 -
+2024-11-28 20:05:03,307 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-28 20:05:03,307 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-28 20:05:10,007 - werkzeug - INFO - 127.0.0.1 - - [28/Nov/2024 20:05:10] "GET / HTTP/1.1" 200 -
+2024-11-28 23:01:35,744 - app - ERROR - Exception on /user/ [GET]
+Traceback (most recent call last):
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/power/flask_try/./app/controller/users.py", line 21, in users
+    app.logger.info("hello")
+AttributeError: module 'flask.app' has no attribute 'logger'
+2024-11-28 23:02:39,179 - app - ERROR - Exception on /user/ [GET]
+Traceback (most recent call last):
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.local/share/virtualenvs/flask_try-1EnXE9dr/lib/python3.8/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/power/flask_try/./app/controller/users.py", line 21, in users
+    app.logger.info("hello")
+AttributeError: module 'flask.app' has no attribute 'logger'
