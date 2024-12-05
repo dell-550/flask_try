@@ -18,5 +18,4 @@ def add_user():
 @user_api.route('/', methods=['GET'])
 def users():
     data = user_service.hello()
-
     return data
