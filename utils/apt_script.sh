@@ -1,14 +1,11 @@
-#!/bin/bash
-#更新apt源为清华源
-echo "[Info] 正在备份默认apt源..."
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
-echo "[Info] 正在替换apt源为清华apt源..."
-echo deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse > /etc/apt/sources.list
-echo deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse >> /etc/apt/sources.list
-echo deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse >> /etc/apt/sources.list
-echo deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse >> /etc/apt/sources.list
-echo "[Info] 正在更新源..."
-apt update
-echo "[Info] 正在更新软件..."
-apt upgrade -y
+# 备份自带的源配置文件
+cp  /etc/apt/sources.list /etc/apt/sources.list.bak
+
+# 下面两条设置中国科技大学的apt-get镜像源, 速度杠杠的 &_& 比阿里云快!
+sed -i s@/archive.ubuntu.com/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list
+sed -i s@/security.ubuntu.com/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list
+
+# 清理并且更新
+apt-get clean
+apt-get update
 

@@ -61,4 +61,4 @@ if __name__ == "__main__":
     #     # 创建所有定义的表
     #     db.create_all()
     #     print("Database tables created successfully!")
-    app.run(host='0.0.0.0')
+    app.run()

@@ -6,10 +6,10 @@ WORKDIR /home/poewr/flask_try
 
 VOLUME ["app/logs/"]
 
-COPY ./utils/apt_script.sh /apt_script.sh
+#COPY ./utils/apt_script.sh /apt_script.sh
 
 # 运行脚本
-RUN chmod +x /apt_script.sh && /apt_script.sh
+#RUN chmod +x /apt_script.sh && /apt_script.sh
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
