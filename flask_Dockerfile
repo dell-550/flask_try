@@ -1,0 +1,20 @@
+FROM my-flask-uwsgi:v1
+
+WORKDIR /home/poewr/flask_try
+#RUN chmod -777 -R ./logs
+#USER root
+
+#VOLUME ["logs/"]
+#RUN rm -rf /etc/apt/sources.list
+#COPY /utils/sources.list /etc/apt/sources.list
+#RUN apt-get update
+#RUN apt-get install -y build-essential
+#COPY requirements.txt ./
+#RUN pip install -r requirements.txt -i  https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+#RUN pip install uwsgi
+COPY . .
+
+#CMD [ "python", "./manage.py" ]
+#CMD ["uwsgi", "--ini", "uwsgi.ini"]
+#
+

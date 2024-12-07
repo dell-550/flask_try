@@ -2,20 +2,27 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:latest
+    image: my-nginx:v1
     container_name: nginx-container
     ports:
       - "880:880"
-    volumes:
-      - ./flask.conf:/etc/nginx/conf.d/  # 假设您的配置文件路径为 ./nginx.conf
+     # 假设您的配置文件路径为 ./nginx.conf
     depends_on:
       - uwsgi
+    networks:
+      - web
 
   uwsgi:
-    image: tiangolo/uwsgi-python:latest  # 选择合适的 uwsgi 镜像
+    image: my-flask-uwsgi-app:v1  # 选择合适的 uwsgi 镜像
     container_name: uwsgi-container
     environment:
-      - UWSGI_HTTP=0.0.0.0:8000
-      - UWSGI_WSGI_FILE=/manager.py   # 指定你的应用
-    volumes:
-      - ./:/  # 假设你的 Python 应用存放在 ./app 目录下  
+            #- UWSGI_HTTP=0.0.0.0:8000  
+      - UWSGI_WSGI_FILE=/manager.py   # 指定你的应用   
+    expose:
+      - "8000"
+    command: ["uwsgi", "--ini", "uwsgi.ini"]
+    networks:
+      - web
+networks:
+  web:
+    driver: bridge
