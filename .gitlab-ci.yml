@@ -65,3 +65,4 @@ deploy-job:      # This job runs in the deploy stage.
       # - uwsgi --ini uwsgi.ini
     - echo "Application successfully deployed."
 
+
