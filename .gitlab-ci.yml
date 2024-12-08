@@ -29,6 +29,7 @@ build-job:       # This job runs in the build stage, which runs first.
    - whoami
      #- docker images
    - pwd
+   - /bin/bash 
      #- pipenv install
      #- pipenv shell  # 启功虚拟环境
    - pipenv --venv
