@@ -30,6 +30,7 @@ build-job:       # This job runs in the build stage, which runs first.
      #- docker images
    - pwd
    - /bin/bash 
+   - echo $0        
      #- pipenv install
      #- pipenv shell  # 启功虚拟环境
    - pipenv --venv
