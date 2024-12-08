@@ -13,13 +13,17 @@ services:
       - web
 
   uwsgi:
-    image: my-flask-uwsgi-app:v1  # 选择合适的 uwsgi 镜像
+    image: my_flask:v1  # 选择合适的 uwsgi 镜像
+          #build:
+    # context:.
+    #  dockerfile: flask_Dockerfile
     container_name: uwsgi-container
     environment:
             #- UWSGI_HTTP=0.0.0.0:8000  
       - UWSGI_WSGI_FILE=/manager.py   # 指定你的应用   
     expose:
       - "8000"
+    
     command: ["uwsgi", "--ini", "uwsgi.ini"]
     networks:
       - web
