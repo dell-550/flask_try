@@ -37,7 +37,7 @@ build-job:       # This job runs in the build stage, which runs first.
    - . /home/gitlab-runner/.local/share/virtualenvs/flask-oDQCXmhj/bin/activate 
     
      
-   - pip install -r requirements.txt   
+   - pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/  
 
 
 unit-test-job:   # This job runs in the test stage.
