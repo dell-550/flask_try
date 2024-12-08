@@ -61,7 +61,8 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-  
+    - docker ps
+    - docker run -p 880:880 my-flask:v1  
     - uwsgi --ini uwsgi.ini
     - echo "Application successfully deployed."
 
