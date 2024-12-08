@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: my-nginx:v1
+    image: my_nginx:v1
     container_name: nginx-container
     ports:
       - "880:880"
