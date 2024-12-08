@@ -35,9 +35,9 @@ build-job:       # This job runs in the build stage, which runs first.
      #- pipenv shell  # 启功虚拟环境
    - pipenv --venv
    - . /home/gitlab-runner/.local/share/virtualenvs/flask-oDQCXmhj/bin/activate 
+    
      
-     
-     #- pip install -r requirements.txt   
+   - pip install -r requirements.txt   
 
 
 unit-test-job:   # This job runs in the test stage.
