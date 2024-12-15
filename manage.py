@@ -1,11 +1,13 @@
 import click
 from app import create_app, db
+from dotenv import load_dotenv
+
+
+
 from app.model.user import User
-
-
 from tests.test_user import TestUser
 
-
+load_dotenv(verbose=True)
 app = create_app("development")
 
 

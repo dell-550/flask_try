@@ -1,14 +1,6 @@
-import click
-from flask import Flask
-from flask.cli import AppGroup
+from langchain_openai import ChatOpenAI
 
-
-app = Flask(__name__)
-# user_cli = AppGroup("user")
-
-@app.cli.command()
-@click.argument("name")
-def print_user(name):
-    print("this is", name)
-
-# app.cli.add_command(user_cli)
+model = ChatOpenAI(
+    model = 'glm-4-flash',
+    openai_api_base = "https://open.bigmodel.cn/api/paas/v4/",
+)

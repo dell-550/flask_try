@@ -13,3 +13,4 @@ __pycache__
 .gitignore
 .vscode
 .log
+.env
