@@ -56,12 +56,16 @@ def create_app( config_path=None):
     app.config.update(config)
     db.init_app(app)
     # print(app.config)
-
-    # 注册蓝图或路由
+        # 注册蓝图或路由
     from app.controller import user_api as user_blueprint
     from app.controller import home_api as home_blueprint
+    from app.controller import chat_api as chat_blueprint
+
     app.register_blueprint(user_blueprint, url_prefix='/user/')
     app.register_blueprint(home_blueprint, url_prefix='/')
+    app.register_blueprint(chat_blueprint, url_prefix='/chat/')
+
+
     print("app created")
     print(app.url_map)
 
