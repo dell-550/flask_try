@@ -1,4 +1,4 @@
-
+from flask_cors import CORS
 from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -45,7 +45,9 @@ handler.setLevel("DEBUG")
 db = SQLAlchemy()
 
 def create_app( config_path=None):
+   
     app = Flask(__name__)
+    CORS(app)
     app.logger.addHandler(handler)
     # 加载配置
     with open("app/config/config.yaml", "r", encoding="utf-8") as f:

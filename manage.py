@@ -1,4 +1,5 @@
 import click
+from flask_cors import CORS
 from app import create_app, db
 from dotenv import load_dotenv
 
@@ -9,6 +10,7 @@ from tests.test_user import TestUser
 
 load_dotenv(verbose=True)
 app = create_app("development")
+CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type"]}})
 
 
 @app.cli.command('init-db')

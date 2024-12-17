@@ -13,4 +13,4 @@ def home():
     data = {
         "name": "this is home page "
     }
-    return data
+    return jsonify({'code': 200, 'msg': data})

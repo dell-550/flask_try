@@ -5,6 +5,7 @@ services:
     image: my_nginx:v1
     container_name: nginx-container
     ports:
+      - "80:80"
       - "880:880"
      # 假设您的配置文件路径为 ./nginx.conf
     depends_on:
@@ -23,6 +24,8 @@ services:
       - UWSGI_WSGI_FILE=/manager.py   # 指定你的应用   
     expose:
       - "8000"
+    ports:
+      - "8000:8000"
     
     command: ["uwsgi", "--ini", "uwsgi.ini"]
     networks:

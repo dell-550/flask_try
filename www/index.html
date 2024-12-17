@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: scroll;
+            border-bottom: 2px solid #eee;
+            padding-right: 10px;
+        }
+        .chat-box .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+        }
+        .chat-box .user {
+            background-color: #d4f1f4;
+            text-align: right;
+        }
+        .chat-box .ai {
+            background-color: #f4f4f4;
+        }
+        .input-area {
+            display: flex;
+            margin-top: 10px;
+        }
+        .input-area input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 16px;
+        }
+        .input-area button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .input-area button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2 style="text-align: center;">AI 聊天助手</h2>
+        <div class="chat-box" id="chat-box">
+            <!-- 聊天消息显示区域 -->
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="请输入消息..." />
+            <button id="send-btn">发送</button>
+        </div>
+        <!-- <button id="test">test</button> -->
+    </div>
+
+    <script type="module">
+        import config from './config.js';  // 引入配置文件
+
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        // 测试按钮
+        // const testBtn = document.getElementById('test');
+
+        // 测试按钮点击事件
+        // testBtn.addEventListener('click', () => {
+        //     const response =  fetch(config.chatUrl + '/user' , { // 使用配置中的API地址
+        //             method: 'GET',
+ 
+        //         }).then((res) => {
+        //             return res.json();
+        //         }).then((res) => {
+        //             console.log(res);
+        //         });
+        // });
+        function addMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(sender);
+            messageElement.textContent = message;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight; // 滚动到最新消息
+        }
+
+        async function getAIResponse(userMessage) {
+            try {
+                const response = await fetch(config.chatUrl + '/chat' , { // 使用配置中的API地址
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+               
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.reply || '抱歉，我没有收到有效的回复。';
+                } else {
+                    console.error('请求失败:', response.statusText);
+                    return '抱歉，我遇到了一些问题。';
+                }
+            } catch (error) {
+                console.error('请求出错:', error);
+                return '抱歉，无法连接到AI服务。';
+            }
+        }
+
+        sendBtn.addEventListener('click', async () => {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, 'user');  // 显示用户消息
+                const aiResponse = await getAIResponse(userMessage);  // 获取AI回复
+                addMessage(aiResponse, 'ai');  // 显示AI回复
+                userInput.value = '';  // 清空输入框
+            }
+        });
+
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

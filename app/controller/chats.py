@@ -11,8 +11,13 @@ from app.service import chat_service
 
 @chat_api.route('/', methods=['POST'])
 def chat_message():
-    data = request.json
+
+    # return res
+    try:
+        data = request.json
     # print(data)
-    res = chat_service.chat_with_agent(data.get('message'))
+        res = chat_service.chat_with_agent(data.get('message'))
+        return jsonify({'code': 200,'msg': 'success','reply': res})
     # data.message = res.content
-    return res
+    except:
+        return jsonify({'code': 1001, 'msg': '参数错误'})
